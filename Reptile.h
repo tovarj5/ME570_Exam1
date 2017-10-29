@@ -7,7 +7,7 @@ class Reptile : public Animal
 {
 public:
     Reptile(bool poison);
-    Reptile(bool poison,std::string animalType, double length ,double weight, double lifespan,std::string sound);
+    Reptile(bool poison,std::string animalType, double length ,double weight, double lifespan,std::string sound,std::string name);
     bool get_poison();
     void print();
 private:

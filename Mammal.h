@@ -7,7 +7,7 @@ class Mammal : public Animal
 {
 public:
     Mammal(std::string skin);
-    Mammal(std::string skin,std::string animalType, double length ,double weight, double lifespan,std::string sound);
+    Mammal(std::string skin,std::string animalType, double length ,double weight, double lifespan,std::string sound,std::string name);
     std::string get_skin();
     void print();
 private:

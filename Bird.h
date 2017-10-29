@@ -8,7 +8,7 @@ class Bird : public Animal
 public:
     //Bird(int eggs);
     Bird(int ID);
-    Bird(int eggs,std::string animalType, double length ,double weight, double lifespan,std::string sound);
+    Bird(int eggs,std::string animalType, double length ,double weight, double lifespan,std::string sound,std::string name);
     int get_eggsLaid();
     void print();
 private:

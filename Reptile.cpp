@@ -5,8 +5,8 @@ Reptile::Reptile(bool poison) :Animal()
 
 }
 
-Reptile::Reptile(bool poison, std::string animalType, double length, double weight, double lifespan, std::string sound)
-    : Animal(animalType,length,weight,lifespan,sound)
+Reptile::Reptile(bool poison, std::string animalType, double length, double weight, double lifespan, std::string sound,std::string name)
+    : Animal(animalType,length,weight,lifespan,sound,name)
 {
     mPoison = poison;
 }
@@ -18,7 +18,8 @@ bool Reptile::get_poison()
 
 void Reptile::print()
 {
-    std::cout << this->get_type() <<std::endl
+    std::cout << this->get_name() <<std::endl
+              << this->get_type() <<std::endl
               << this->get_length() <<std::endl
               <<this->get_weight() << std::endl
              <<this->get_lifespan() <<std::endl

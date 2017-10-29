@@ -6,8 +6,8 @@ Mammal::Mammal(std::string skin) : Animal()
 
 }
 
-Mammal::Mammal(std::string skin, std::string animalType, double length, double weight, double lifespan, std::string sound)
-    :Animal(animalType,length,weight,lifespan,sound)
+Mammal::Mammal(std::string skin, std::string animalType, double length, double weight, double lifespan, std::string sound,std::string name)
+    :Animal(animalType,length,weight,lifespan,sound,name)
 {
     mSkin = skin;
 }
@@ -19,7 +19,8 @@ std::string Mammal::get_skin()
 
 void Mammal::print()
 {
-    std::cout << this->get_type() <<std::endl
+    std::cout << this->get_name() <<std::endl
+              << this->get_type() <<std::endl
               << this->get_length() <<std::endl
               <<this->get_weight() << std::endl
              <<this->get_lifespan() <<std::endl

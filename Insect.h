@@ -7,7 +7,7 @@ class Insect : public Animal
 {
 public:
     Insect(std::string favSong);
-    Insect(std::string favSong,std::string animalType, double length ,double weight, double lifespan,std::string sound);
+    Insect(std::string favSong,std::string animalType, double length ,double weight, double lifespan,std::string sound,std::string name);
     std::string get_favSong();
     void print();
 private:
