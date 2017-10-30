@@ -12,11 +12,11 @@ public:
     Animal(std::string animalType, double length ,double weight, double lifespan,std::string sound,std::string name);
     Animal();
     Animal(int id);
-    std::string get_type();//std::string &animalType);
-    double get_length();//double &length);
-    double get_weight();//double &weight);
-    double get_lifespan();//double &lifespan);
-    std::string get_sound();//std::string &sound);
+    std::string get_type();
+    double get_length();
+    double get_weight();
+    double get_lifespan();
+    std::string get_sound();
     virtual void print() =0;
     void print_sound();
     std::string get_name();

@@ -10,7 +10,7 @@ Animal::Animal(std::string animalType, double length, double weight, double life
     mName = name;
 }
 
-Animal::Animal()//std::string animalType, double length, double weight, double lifespan, std::string sound)
+Animal::Animal()
 {
 
 }
@@ -20,30 +20,6 @@ Animal::Animal(int id)
 
 }
 
-//void Animal::get_type(std::string &animalType)
-//{
-//    animalType = mAnimalType;
-//}
-
-//void Animal::get_length(double &length)
-//{
-//    length = mLength;
-//}
-
-//void Animal::get_weight(double &weight)
-//{
-//    weight = mWeight;
-//}
-
-//void Animal::get_lifespan(double &lifespan)
-//{
-//    lifespan = mLifespan;
-//}
-
-//void Animal::get_sound(std::string &sound)
-//{
-//    sound = mSound;
-//}
 std::string Animal::get_type()
 {
     return mAnimalType;

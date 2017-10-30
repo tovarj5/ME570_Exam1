@@ -7,7 +7,11 @@
 #include "Insect.h"
 #include "Reptile.h"
 
-std::vector<Animal*> animalSort(int sort,std::vector<Animal*> collection);
+//std::vector<Animal*> animalSort(int sort,std::vector<Animal*> collection);
+bool sortLength(Animal *a, Animal *b);//Animal a, Animal b, int sort);
+bool sortWeight(Animal *a, Animal *b);
+bool sortLifespan(Animal *a, Animal *b);
+bool collectionSort(Animal *a, Animal *b, int s);
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +23,7 @@ int main(int argc, char *argv[])
 
     //Create animals and input the information needed;.
     Bird *penguin = new Bird(3,"Bird",3.6,66.0,20,"Honk","Penguin");
-    Mammal *bear = new Mammal("fur","Mammal",7.9,992,32,"roar","Brown Bear");
+    Mammal *bear = new Mammal("fur","Mammal",7.9,992,32,"Roar","Brown Bear");
     Insect *ladyBug = new Insect("lady in red","Insect",0.03,0.00003,1,"nEEh -pAAh","Lady Bug");
     Mammal *dolphin = new Mammal("Rubbery","Mammal",7,209,30,"Click","Dolphin");
     Bird *eagle = new Bird(2,"Bird",3,9.9,25,"Screech","Eagle");
@@ -37,50 +41,69 @@ int main(int argc, char *argv[])
     AnimalsCollection.push_back(prayMantis);
     AnimalsCollection.push_back(Croc);
 
-    ////////std::sort(collection.begin(),collection.end(),animalSort(1))
-
-            //Print the vector of animals
-    for(Animal *a:AnimalsCollection)
-    {
-        a->print_sound();
-    }
+    //Print the vector of animals
+//    for(Animal *a:AnimalsCollection)
+//    {
+//        a->print_sound();
+//    }
     int sort_method{0};
+    for(int i{0};i<3;i++)
+    {
+        if(i==0)
+        {
+            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortLength);
+        }
+        else if(i==1)
+        {
+            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortWeight);
+        }
+        else if (i==2)
+        {
+            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortLifespan);
+        }
+        for(Animal *a:AnimalsCollection)
+        {
+            a->print_sound();
+        }
+        std::cout << "- - - - - End of Sort: " << i <<" - - - - - " <<std::endl;
+    }
+    //std::sort(AnimalsCollection.begin(),AnimalsCollection.end,[](Animal *lhs,Animal *rhs) {return lhs->get_length() <rhs->get_length();});
 
     std::cout << "- - - - - End of Program - - - - - ";
     return a.exec();
 }
 
-std::vector<Animal*> animalSort(int sort,std::vector<Animal*> collection)
+bool sortLength(Animal *a,Animal *b)
 {
     //Sorting from least to greatest.
-    if(sort==1)
+    //Sort based on Length #1
+    return a->get_length() < b->get_length();
+}
+bool sortWeight(Animal *a, Animal *b)
+{
+    //        //Sort based on Weight #2
+    return a->get_weight() < b->get_weight();
+}
+bool sortLifespan(Animal *a, Animal *b)
+{
+    //       //Sort based on Lifespan #3
+    return a->get_lifespan() < b->get_lifespan();
+}
+bool collectionSort(Animal *a,Animal *b,int s)
+{
+    if (s==1)
     {
-        //Sort based on Length #1
-        for(Animal *a:collection)
-        {
-            a->get_length();
-
-        }
-
+        return a->get_length() < b->get_length();
     }
-    else if(sort ==2)
-    {
-        //Sort based on Weight #2
-        for(Animal *a:collection)
-        {
-            a->get_weight();
-        }
 
+    else if(s==2)
+    {
+        return a->get_weight() < b->get_weight();
     }
 
-    else if (sort ==3)
+    else if (s ==3)
     {
-       //Sort based on Lifespan #3
-        for(Animal *a:collection)
-        {
-            a->get_lifespan();
-        }
-
+        return a->get_lifespan() < b->get_lifespan();
     }
 
 }
