@@ -9,17 +9,23 @@
 class Animal
 {
 public:
+    //Constructors to create animal
     Animal(std::string animalType, double length ,double weight, double lifespan,std::string sound,std::string name);
     Animal();
     Animal(int id);
+
+    //Get functions for class variables
     std::string get_type();
     double get_length();
     double get_weight();
     double get_lifespan();
     std::string get_sound();
+    std::string get_name();
+
+    //Print functions for sound and other information.
     virtual void print() =0;
     void print_sound();
-    std::string get_name();
+
 private:
     int mID{0};
     std::string mAnimalType{""};

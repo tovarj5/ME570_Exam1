@@ -41,6 +41,7 @@ std::string Animal::get_sound()
     return mSound;
 }
 
+//Sound if printed from the animal class, but the full print of the variables are done in the children classes.
 void Animal::print_sound()
 {
     std::cout <<"Animal: " << mName <<std::endl

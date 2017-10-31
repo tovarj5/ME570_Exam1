@@ -1,3 +1,7 @@
+//Jacob Tovar
+//ME 570 - Exam 1 Take Home
+//October 29th - october 31st 2017
+
 #include <QCoreApplication>
 #include <iostream>
 #include <vector>
@@ -21,7 +25,6 @@ int main(int argc, char *argv[])
 
     //Create vector for animals
     std::vector<Animal*> AnimalsCollection ;
-    std::cout <<"Hello Exam 1" << std::endl;
 
     //Create animals and input the information needed;.
     Bird *penguin = new Bird(3,"Bird",3.6,66.0,20,"Honk","Penguin");
@@ -64,6 +67,7 @@ int main(int argc, char *argv[])
 //        {
 //            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortLifespan);
 //        }
+
         //This sort uses a lambda function with the sort_method to sort all variations needed to sort the animal class.
         std::sort(AnimalsCollection.begin(),AnimalsCollection.end(), [sort_method] (Animal *a,Animal *b)
         {
@@ -80,19 +84,21 @@ int main(int argc, char *argv[])
                 return a->get_lifespan() < b->get_lifespan();
             }
          });
+
+        //Print sound for each animal.
         for(Animal *a:AnimalsCollection)
         {
             a->print_sound();
         }
 
+        // Print a divider to see when the end of the sorting is.
         std::cout << "- - - - - End of Sort: " << sort_method <<" - - - - - " <<std::endl;
         sort_method++;
     }
 
     //std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),std::bind(collectionSort,_1,_2,sort_method));
 
-
-
+    //Print a divider for the end of the program.
     std::cout << "- - - - - End of Program - - - - - ";
     return a.exec();
 }

@@ -9,7 +9,7 @@ Bird::Bird(int id) : Animal(id)
 {
 
 }
-
+//Get information needed. Fill in the class specific variables. and pass on the other variables into the animal class.
 Bird::Bird(int eggs, std::string animalType, double length, double weight, double lifespan, std::string sound,std::string name) :
     Animal(animalType, length ,weight, lifespan,sound,name)
 {
@@ -20,7 +20,7 @@ int Bird::get_eggsLaid()
 {
     return mEggsLaid;
 }
-
+//Print function for Bird
 void Bird::print()
 {
     std::cout << this->get_name() <<std::endl

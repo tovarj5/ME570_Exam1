@@ -4,7 +4,7 @@ Insect::Insect(std::string favSong) : Animal()
 {
 
 }
-
+//Get information needed. Fill in the class specific variables. and pass on the other variables into the animal class.
 Insect::Insect(std::string favSong, std::string animalType, double length, double weight, double lifespan, std::string sound,std::string name)
     : Animal(animalType,length,weight,lifespan,sound,name)
 {
