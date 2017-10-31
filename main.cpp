@@ -1,6 +1,8 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <vector>
+#include <functional>
+#include <algorithm>
 #include "Animal.h"
 #include "Bird.h"
 #include "Mammal.h"
@@ -46,28 +48,50 @@ int main(int argc, char *argv[])
 //    {
 //        a->print_sound();
 //    }
-    int sort_method{0};
+    int sort_method{1};
     for(int i{0};i<3;i++)
     {
-        if(i==0)
+        // THIS Commented out code is sorts the Animal Collection Vector using 3 different custome function Calls.
+//        if(i==0)
+//        {
+//            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortLength);
+//        }
+//        else if(i==1)
+//        {
+//            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortWeight);
+//        }
+//        else if (i==2)
+//        {
+//            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortLifespan);
+//        }
+        //This sort uses a lambda function with the sort_method to sort all variations needed to sort the animal class.
+        std::sort(AnimalsCollection.begin(),AnimalsCollection.end(), [sort_method] (Animal *a,Animal *b)
         {
-            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortLength);
-        }
-        else if(i==1)
-        {
-            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortWeight);
-        }
-        else if (i==2)
-        {
-            std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),sortLifespan);
-        }
+            if (sort_method==1)
+            {
+                return a->get_length() < b->get_length();
+            }
+            else if(sort_method==2)
+            {
+                return a->get_weight() < b->get_weight();
+            }
+            else if(sort_method ==3)
+            {
+                return a->get_lifespan() < b->get_lifespan();
+            }
+         });
         for(Animal *a:AnimalsCollection)
         {
             a->print_sound();
         }
-        std::cout << "- - - - - End of Sort: " << i <<" - - - - - " <<std::endl;
+
+        std::cout << "- - - - - End of Sort: " << sort_method <<" - - - - - " <<std::endl;
+        sort_method++;
     }
-    //std::sort(AnimalsCollection.begin(),AnimalsCollection.end,[](Animal *lhs,Animal *rhs) {return lhs->get_length() <rhs->get_length();});
+
+    //std::sort(AnimalsCollection.begin(),AnimalsCollection.end(),std::bind(collectionSort,_1,_2,sort_method));
+
+
 
     std::cout << "- - - - - End of Program - - - - - ";
     return a.exec();
